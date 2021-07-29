@@ -1,6 +1,7 @@
 package tn.esprit.spring.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class Client implements Serializable {
 	@OneToMany(mappedBy="client")
 	private Set<Facture> factures;
 	@ManyToMany
-	private Set<Intervention> interventions;
+	private List<Intervention> interventions;
 	@ManyToOne
 	private Admin admin;
 	
@@ -54,12 +55,7 @@ public class Client implements Serializable {
 	public void setFactures(Set<Facture> factures) {
 		this.factures = factures;
 	}
-	public Set<Intervention> getInterventions() {
-		return interventions;
-	}
-	public void setInterventions(Set<Intervention> interventions) {
-		this.interventions = interventions;
-	}
+
 	public Admin getAdmin() {
 		return admin;
 	}
@@ -95,6 +91,18 @@ public class Client implements Serializable {
 	}
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public List<Intervention> getInterventions() {
+		return interventions;
+	}
+	public void setInterventions(List<Intervention> interventions) {
+		this.interventions = interventions;
 	}
 	
 	
